@@ -1,0 +1,9 @@
+.typefield {
+  resize: none;
+  font-size: 1.3rem;
+  max-width: 90%;
+}
+
+.wordfield:focus {
+  outline: none;
+}
