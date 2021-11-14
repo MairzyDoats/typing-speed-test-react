@@ -3,6 +3,7 @@ import WordField from './WordField';
 import TypeField from './TypeField';
 import Timer from './Timer';
 import ResetButton from './ResetButton';
+import Modal from './Modal';
 import { wordList } from '../const/randomWords';
 import '../css/main.css'
 
@@ -11,13 +12,15 @@ export default function Main() {
   const [typedWords, setTypedWords] = useState("")
   const [countdown, setCountdown] = useState(60);
   const [start, setStart] = useState(false);
+  const [finish, setFinish] = useState(false);
+  const [score, setScore] = useState(0)
   const [highscore, setHighScore] = useState(0);
 
   useEffect(() => {
     if (countdown > 0 && start) {
       var countDownTimeout = setTimeout(() => setCountdown((t) => t - 1), 1000);
     } else if (countdown === 0) {
-      alert(countWords());
+      countWords();
     }
     return () => clearTimeout(countDownTimeout);
   }, [start, countdown])
@@ -85,12 +88,14 @@ export default function Main() {
       } else if (stringOfWords.split(" ").includes(word))
         score += 1;
     })
-    return score;
+    setScore(score);
+    setFinish(true)
   }
 
 
   return (
     <main className="main">
+      {finish && <Modal score={score} />}
       <p>{start ? "yes" : "no"}</p>
       <Timer time={countdown} />
       <ResetButton reset={reset} />

@@ -1,0 +1,22 @@
+.modal {
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
+  width: 40%;
+  min-height: 60vh;
+  margin: 0 auto;
+}
+
+.modal__text {
+  padding: 2em 0;
+  margin: 0 auto;
+}
+
+.modal__screen {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  height: 100%;
+  width: 100%;
+}
+
