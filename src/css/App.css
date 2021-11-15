@@ -1,4 +1,7 @@
-
+@import 'main.css';
+@import 'modal.css';
+@import 'typefield.css';
+@import 'wordfield.css';
 
 *,
 *::before,

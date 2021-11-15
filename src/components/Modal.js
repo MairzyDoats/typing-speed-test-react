@@ -1,5 +1,4 @@
 import React from 'react'
-import '../css/modal.css'
 
 export default function Modal({ score }) {
   return (

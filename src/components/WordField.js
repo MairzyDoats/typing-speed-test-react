@@ -1,10 +1,12 @@
 import React from 'react'
-import '../css/wordfield.css'
+import Text from "./Text"
 
-export default function WordField({ words }) {
+function WordField({ words }) {
   return (
     <div className="wordfield">
-      <p className="wordfield__text">{words.map((letter, index) => <span key={index} id={`wordfield__letter-${index}`}>{letter}</span>)}</p>
+      <Text words={words} />
     </div>
   )
 }
+
+export default React.memo(WordField)
