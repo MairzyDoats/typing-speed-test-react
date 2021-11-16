@@ -26,3 +26,22 @@
 .wordfield__text--wrong {
   color: red;
 }
+
+.wordfield::-webkit-scrollbar {
+  width: 0.4vw;
+}
+
+.wordfield::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wordfield::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+
+@supports (scrollbar-color: var(--accent-color) transparent) {
+  * {
+    scrollbar-color: var(--accent-color) transparent;
+    scrollbar-width: thin;
+  }
+}
