@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { GameContext } from './Main';
 
 export default function TypeField() {
-  const { stringOfWords, typeFieldRef, reset, handleStart } = useContext(GameContext);
+  const { handleStart, reset, stringOfWords, typeFieldRef } = useContext(GameContext);
   const [typedWords, setTypedWords] = useState("");
 
   useEffect(() => {
@@ -42,6 +42,7 @@ export default function TypeField() {
   return (
     <textarea
       ref={typeFieldRef}
+      placeholder="Start typing to start the timer."
       className="typefield"
       name="Typefield"
       id="typefield"
