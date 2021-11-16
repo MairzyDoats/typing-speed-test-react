@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import WordField from './WordField';
-import TypeField from './TypeField';
-import Timer from './Timer';
-import ResetButton from './ResetButton';
+import React, { useState, useEffect, useRef } from 'react';
 import Modal from './Modal';
+import DataSection from './DataSection';
+import TextfieldSection from './TextfieldSection';
 import { wordList } from '../const/randomWords';
+
+export const GameContext = React.createContext();
 
 export default function Main() {
   const [stringOfWords, setStringOfWords] = useState([]);
@@ -12,7 +12,21 @@ export default function Main() {
   const [reset, setReset] = useState(false);
   const [finish, setFinish] = useState(false);
   const [score, setScore] = useState(0);
-  const [highscore, setHighScore] = useState(0);
+  const [highscore, setHighscore] = useState(0);
+  const typeFieldRef = useRef();
+
+  const gameContextValue = {
+    countWords,
+    handleReset,
+    handleRestart,
+    handleStart,
+    highscore,
+    reset,
+    score,
+    start,
+    stringOfWords,
+    typeFieldRef
+  }
 
   useEffect(() => {
     handleReset();
@@ -21,6 +35,7 @@ export default function Main() {
 
   function handleReset() {
     setStart(false);
+    setReset(true);
     var randomWords = "";
     for (var i = 0; i < 250; i++) {
       var word = wordList[Math.floor(Math.random() * wordList.length)] + " "
@@ -34,36 +49,40 @@ export default function Main() {
 
   function handleStart() {
     if (!start) {
+      setReset(false);
       setStart(true);
     }
   }
 
+  function countWords() {
+    var score = 0;
+    typeFieldRef.current.value.split(" ").forEach(word => {
+      console.log(word);
+      if (word === "") {
+        return
+      } else if (stringOfWords.join("").includes(word))
+        score += 1;
+    })
+    setScore(score);
+    if (score > highscore) {
+      setHighscore(score);
+    }
+    setFinish(true);
+  }
 
-
-  // function countWords() {
-  //   var score = 0;
-  //   typedWords.split(" ").forEach(word => {
-  //     console.log(word);
-  //     if (word === "") {
-  //       return
-  //     } else if (stringOfWords.split(" ").includes(word))
-  //       score += 1;
-  //   })
-  //   setScore(score);
-  //   setFinish(true);
-  // }
-
-
+  function handleRestart() {
+    setFinish(false);
+    handleReset();
+  }
 
 
   return (
-    <main className="main">
-      {finish && <Modal score={score} />}
-      <p>{start ? "yes" : "no"}</p>
-      <Timer isStart={start} />
-      <ResetButton reset={handleReset} />
-      <WordField words={stringOfWords} />
-      <TypeField wordsToType={stringOfWords} handleStart={handleStart} isReset={reset} />
-    </main>
+    <GameContext.Provider value={gameContextValue}>
+      <main className="main">
+        {finish && <Modal />}
+        <DataSection />
+        <TextfieldSection />
+      </main>
+    </GameContext.Provider>
   )
 }

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GameContext } from './Main'
 
-export default function ResetButton({ reset }) {
+export default function ResetButton() {
+  const { handleReset } = useContext(GameContext)
   return (
-    <button onClick={reset}>Reset</button>
+    <button className="data-section__button" onClick={handleReset}>Reset</button>
   )
 }

@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { GameContext } from './Main';
 
-export default function Timer({ isStart }) {
+export default function Timer() {
   const [countdown, setCountdown] = useState(60);
+  const { countWords, start } = useContext(GameContext);
 
   useEffect(() => {
-    if (!isStart) {
+    if (!start) {
       setCountdown(60);
     }
-    if (countdown > 0 && isStart) {
+    if (countdown > 0 && start) {
       var countDownTimeout = setTimeout(() => setCountdown((t) => t - 1), 1000);
+    } else if (countdown === 0) {
+      countWords();
+      setCountdown(60);
     }
     return () => clearTimeout(countDownTimeout);
-  }, [isStart, countdown])
+  }, [start, countdown, countWords])
 
   return (
-    <div>
-      <p>{countdown}</p>
+    <div className="data-section__dataset">
+      <h3 className="data-section__dataset__heading">Timer</h3>
+      <p className="data-section__dataset__data">{countdown}</p>
     </div>
   )
 }

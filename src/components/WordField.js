@@ -1,10 +1,11 @@
-import React from 'react'
-import Text from "./Text"
+import React from 'react';
+import Text from "./Text";
 
-function WordField({ words }) {
+function WordField() {
+
   return (
     <div className="wordfield">
-      <Text words={words} />
+      <Text />
     </div>
   )
 }

@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { GameContext } from './Main';
 
-export default function TypeField({ wordsToType, handleStart, isReset }) {
+export default function TypeField() {
+  const { stringOfWords, typeFieldRef, reset, handleStart } = useContext(GameContext);
   const [typedWords, setTypedWords] = useState("");
 
   useEffect(() => {
-    wordsToType.forEach((letter, index) => {
+    stringOfWords.forEach((letter, index) => {
       if (index > (typedWords.length - 1)) {
         document.getElementById(`wordfield__letter-${index}`).classList.remove("wordfield__text--wrong")
         document.getElementById(`wordfield__letter-${index}`).classList.remove("wordfield__text--right")
       }
     })
     typedWords.split("").forEach((letter, index) => {
-      if (letter === wordsToType[index]) {
+      if (letter === stringOfWords[index]) {
         document.getElementById(`wordfield__letter-${index}`).classList.remove("wordfield__text--wrong")
         document.getElementById(`wordfield__letter-${index}`).classList.add("wordfield__text--right")
       } else {
@@ -19,13 +21,13 @@ export default function TypeField({ wordsToType, handleStart, isReset }) {
         document.getElementById(`wordfield__letter-${index}`).classList.add("wordfield__text--wrong")
       }
     })
-  }, [wordsToType, typedWords]);
+  }, [stringOfWords, typedWords]);
 
   useEffect(() => {
-    if (isReset) {
+    if (reset) {
       setTypedWords("");
     }
-  }, [isReset])
+  }, [reset])
 
   function handleChange(value) {
     handleStart();
@@ -39,6 +41,7 @@ export default function TypeField({ wordsToType, handleStart, isReset }) {
 
   return (
     <textarea
+      ref={typeFieldRef}
       className="typefield"
       name="Typefield"
       id=""

@@ -1,0 +1,26 @@
+.data-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4em;
+}
+
+.data-section__dataset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-section__button {
+  padding: 1em;
+  border: none;
+  background-color: hsl(160, 100%, 27%);
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.data-section__button:hover,
+.data-section__button:focus {
+  opacity: .6;
+  transform: scale(110%);
+}

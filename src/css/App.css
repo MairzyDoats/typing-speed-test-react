@@ -2,6 +2,8 @@
 @import 'modal.css';
 @import 'typefield.css';
 @import 'wordfield.css';
+@import 'datasection.css';
+@import 'textfieldsection.css';
 
 *,
 *::before,
