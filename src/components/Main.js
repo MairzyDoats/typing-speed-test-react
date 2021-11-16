@@ -34,6 +34,7 @@ export default function Main() {
 
 
   function handleReset() {
+    setFinish(false);
     setStart(false);
     setReset(true);
     var randomWords = "";
@@ -47,7 +48,16 @@ export default function Main() {
     setStringOfWords(randomWords.split(""));
   }
 
+  useEffect(() => {
+    if (finish) {
+      document.getElementById('typefield').readOnly = true;
+    } else {
+      document.getElementById('typefield').readOnly = false;
+    }
+  }, [finish])
+
   function handleStart() {
+    if (finish) { return }
     if (!start) {
       setReset(false);
       setStart(true);
@@ -55,6 +65,7 @@ export default function Main() {
   }
 
   function countWords() {
+    setStart(false);
     var score = 0;
     typeFieldRef.current.value.split(" ").forEach(word => {
       console.log(word);

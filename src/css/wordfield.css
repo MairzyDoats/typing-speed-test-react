@@ -1,4 +1,5 @@
 .wordfield {
+  background-color: var(--bg-color--secondary);
   font-size: 1.3rem;
   width: 60ch;
   height: 23em;

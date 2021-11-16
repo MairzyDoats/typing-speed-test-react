@@ -44,7 +44,7 @@ export default function TypeField() {
       ref={typeFieldRef}
       className="typefield"
       name="Typefield"
-      id=""
+      id="typefield"
       cols="50"
       rows="20"
       onPaste={(e) => { e.preventDefault(); return false; }}

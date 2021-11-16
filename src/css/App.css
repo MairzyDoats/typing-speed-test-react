@@ -4,6 +4,8 @@
 @import 'wordfield.css';
 @import 'datasection.css';
 @import 'textfieldsection.css';
+@import 'header.css';
+@import 'footer.css';
 
 *,
 *::before,
@@ -12,7 +14,9 @@
 }
 
 :root {
-
+  --bg-color--primary: hsl(177, 90%, 92%);
+  --bg-color--secondary: hsl(0, 0%, 100%);
+  --accent-color: hsl(160, 100%, 18%);
 }
 
 body,
@@ -22,4 +26,8 @@ h3,
 p {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--bg-color--primary);
 }
