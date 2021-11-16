@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.header__logo {
+  max-width: 50%;
+  margin: 0 auto;
+  fill: var(--bg-color--primary)
+}
