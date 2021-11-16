@@ -19,6 +19,25 @@
   --accent-color: hsl(160, 100%, 18%);
 }
 
+html::-webkit-scrollbar {
+  width: 0.7vw;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+
+@supports (scrollbar-color: var(--accent-color) transparent) {
+  * {
+    scrollbar-color: var(--accent-color) transparent;
+    scrollbar-width: thin;
+  }
+}
+
 body,
 h1,
 h2,
