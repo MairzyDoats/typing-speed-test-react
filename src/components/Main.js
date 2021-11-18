@@ -14,7 +14,7 @@ export default function Main() {
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
   const typeFieldRef = useRef();
-  const TIME = 5;
+  const TIME = 60;
 
   const gameContextValue = {
     countWords,
