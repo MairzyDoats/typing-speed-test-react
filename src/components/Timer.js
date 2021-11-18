@@ -2,21 +2,22 @@ import React, { useState, useEffect, useContext } from 'react'
 import { GameContext } from './Main';
 
 export default function Timer() {
-  const [countdown, setCountdown] = useState(60);
-  const { countWords, start } = useContext(GameContext);
+  const { countWords, start, TIME } = useContext(GameContext);
+  const [countdown, setCountdown] = useState(TIME);
+
 
   useEffect(() => {
     if (!start) {
-      setCountdown(60);
+      setCountdown(TIME);
     }
     if (countdown > 0 && start) {
       var countDownTimeout = setTimeout(() => setCountdown((t) => t - 1), 1000);
     } else if (countdown === 0) {
       countWords();
-      setCountdown(60);
+      setCountdown(TIME);
     }
     return () => clearTimeout(countDownTimeout);
-  }, [start, countdown, countWords])
+  }, [start, countdown, countWords, TIME])
 
   return (
     <div className="data-section__dataset">

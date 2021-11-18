@@ -14,6 +14,7 @@ export default function Main() {
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
   const typeFieldRef = useRef();
+  const TIME = 5;
 
   const gameContextValue = {
     countWords,
@@ -25,7 +26,8 @@ export default function Main() {
     score,
     start,
     stringOfWords,
-    typeFieldRef
+    typeFieldRef,
+    TIME
   }
 
   useEffect(() => {
@@ -50,9 +52,9 @@ export default function Main() {
 
   useEffect(() => {
     if (finish) {
-      document.getElementById('typefield').readOnly = true;
+      typeFieldRef.current.readOnly = true;
     } else {
-      document.getElementById('typefield').readOnly = false;
+      typeFieldRef.current.readOnly = false;
     }
   }, [finish])
 
