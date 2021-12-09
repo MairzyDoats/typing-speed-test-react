@@ -1,7 +1,9 @@
 .data-section {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 4em;
+  align-items: center;
+  gap: 1em;
 }
 
 .data-section__dataset {

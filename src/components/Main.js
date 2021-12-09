@@ -13,6 +13,7 @@ export default function Main() {
   const [finish, setFinish] = useState(false);
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
+  const wordFieldRef = useRef();
   const typeFieldRef = useRef();
   const TIME = 60;
 
@@ -27,6 +28,7 @@ export default function Main() {
     start,
     stringOfWords,
     typeFieldRef,
+    wordFieldRef,
     TIME
   }
 

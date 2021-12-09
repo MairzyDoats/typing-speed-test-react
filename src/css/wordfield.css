@@ -1,11 +1,12 @@
 .wordfield {
   background-color: var(--bg-color--secondary);
   font-size: 1.3rem;
-  width: 60ch;
-  height: 23em;
+  height: 30em;
+  max-height: 30vh;
+  min-width: 50%;
   overflow-y: scroll;
-  max-width: 90%;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .wordfield__text {
