@@ -50,6 +50,7 @@ export default function Main() {
       }
     }
     setStringOfWords(randomWords.split(""));
+    wordFieldRef.current.scrollTop = wordFieldRef.current.offsetTop;
   }
 
   useEffect(() => {
