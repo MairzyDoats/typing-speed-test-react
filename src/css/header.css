@@ -6,7 +6,7 @@
 }
 
 .header__logo {
-  max-width: 50%;
+  max-width: 80%;
   margin: 0 auto;
   fill: var(--bg-color--primary)
 }
@@ -19,7 +19,11 @@
   color: var(--bg-color--primary);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
+  .header__logo {
+    max-width: 900px;
+  }
+
   .header__heading {
     font-size: 3rem;
   }
