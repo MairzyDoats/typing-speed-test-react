@@ -41,6 +41,8 @@ export default function Main() {
     setFinish(false);
     setStart(false);
     setReset(true);
+
+    /* Generate a new string of 250 randomly chosen words. */
     var randomWords = "";
     for (var i = 0; i < 250; i++) {
       var word = wordList[Math.floor(Math.random() * wordList.length)] + " "
@@ -50,6 +52,8 @@ export default function Main() {
       }
     }
     setStringOfWords(randomWords.split(""));
+
+    /* Scroll the Wordfield to the top */
     wordFieldRef.current.scrollTop = wordFieldRef.current.offsetTop;
   }
 
@@ -62,7 +66,7 @@ export default function Main() {
   }, [finish])
 
   function handleStart() {
-    if (finish) { return }
+    if (finish) return
     if (!start) {
       setReset(false);
       setStart(true);
@@ -71,14 +75,17 @@ export default function Main() {
 
   function countWords() {
     setStart(false);
+
+    /* Count the words and add to score */
     var score = 0;
     typeFieldRef.current.value.split(" ").forEach(word => {
-      console.log(word);
-      if (word === "") {
-        return
-      } else if (stringOfWords.join("").includes(word))
+      if (word === "") return
+      if (stringOfWords.join("").includes(word)) {
         score += 1;
+      }
     })
+
+    /* Handle Score and highscore */
     setScore(score);
     if (score > highscore) {
       setHighscore(score);
