@@ -84,13 +84,15 @@ export default function Main() {
         score += 1;
       }
     })
+    handleScore(score);
+    setFinish(true);
+  }
 
-    /* Handle Score and highscore */
+  function handleScore(score) {
     setScore(score);
     if (score > highscore) {
       setHighscore(score);
     }
-    setFinish(true);
   }
 
   function handleRestart() {
