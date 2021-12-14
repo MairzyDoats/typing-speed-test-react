@@ -7,8 +7,8 @@ export default function DataSection() {
   return (
     <div className="data-section">
       <Timer />
-      <Highscore />
       <ResetButton />
+      <Highscore />
     </div>
   )
 }

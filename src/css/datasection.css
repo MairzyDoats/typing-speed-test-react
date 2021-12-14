@@ -13,16 +13,20 @@
 }
 
 .data-section__button {
-  padding: 1em;
-  border: none;
-  background-color: var(--accent-color);
-  color: white;
+  padding: 1em 1.5em;
+  background-color: var(--bg-color--primary);
+  color: var(--accent-color);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
   cursor: pointer;
   transition: all .3s ease;
 }
 
 .data-section__button:hover,
 .data-section__button:focus {
-  opacity: .6;
+  color: var(--bg-color--primary);
+  background-color: var(--accent-color);
   transform: scale(110%);
 }
