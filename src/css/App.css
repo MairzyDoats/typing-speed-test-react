@@ -14,7 +14,7 @@
 }
 
 :root {
-  --bg-color--primary: hsl(177, 90%, 92%);
+  --bg-color--primary: hsl(0, 0%, 100%);
   --bg-color--secondary: hsl(0, 0%, 100%);
   --accent-color: hsl(160, 100%, 18%);
 }
