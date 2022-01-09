@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Ready, Set Type! &ndash; Typing Speed Test
+
+[Try it out here](https://readysettype.netlify.app/)
+
+Ready, Set, Type! is a React app that challenges you to type as fast as you can. You have sixty seconds to write a randomly generated collection of words and get instant feedback if you typed the right letter each time.
+
+## How Ready, Set, Type! came together
+
+Out of a list of about one thousand common English words a collection of 250 words is created, since the world record of typed words per minute is 216. (I will happily generate more words if you somehow fulfil that task of course!) By typing the first letter into the textarea the timer of sixty seconds starts.
+
+Each letter of the word field is separated in a list to check if each letter of the user is correct. In the end each written word is compared to the wordfield and a score is set. A modal tells the user how many words they typed correctly and a new set of words is generated. You can reset the words and the timer any time. A highscore system tells the player the highest score they got in this session.
+
+Of course you can neither copy the set of words to type nor paste anything into the textarea, so cheating is prohibited. If you find a way to cheat anyway, congratulations, I would love to hear how you have done it so I can make this app a little better. Contact me about it.
+
+## Next Steps?
+
+A global highscore might be nice so that players could compete with each other. Also it would be better if the ad hoc check if the input is correct would reset with each word. If the user misses a letter or types too many letters, the whole rest of the input will be displayed as false, although the correct words will count in the end.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
