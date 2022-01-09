@@ -8,3 +8,14 @@
 .footer__copyright {
   color: var(--bg-color--primary);
 }
+
+.footer__link {
+  color: var(--bg-color--primary);
+  text-decoration: none;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  opacity: 0.8;
+  text-decoration: underline;
+}
